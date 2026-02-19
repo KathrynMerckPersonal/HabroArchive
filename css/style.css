@@ -1,0 +1,28 @@
+@font-face {
+	font-family: alice;
+	src: url(fonts/Alice-Regular.ttf);
+}
+
+@font-face {
+	font-family: habrohead;
+	src: url(fonts/RuntimeRegular-m2Odx.otf);
+}
+
+p{
+	font-family: alice;
+}
+
+.header {
+    background-image: url(../images/C79pKf6MS9X_4.png);
+
+    height: 30vw;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+body {
+    background-color: #002400;
+}
