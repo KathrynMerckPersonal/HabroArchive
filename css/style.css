@@ -1,3 +1,12 @@
+:root {
+    --bgr: 59;
+    --bgg: 73;
+    --bgb: 20;
+    --bgc: rgb(var(--bgr), var(--bgg), var(--bgb));
+    --bgt: rgba(var(--bgr), var(--bgg), var(--bgb), 0);
+    --cbgc: #7F8557;
+}
+
 @font-face {
 	font-family: alice;
 	src: url(fonts/Alice-Regular.ttf);
@@ -13,7 +22,9 @@ p{
 }
 
 .header {
-    background-image: url(../images/C79pKf6MS9X_4.png);
+    --grad: 15%;
+    --gradend: 85%;
+    background-image: linear-gradient(to top, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), linear-gradient(to right, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), url(../images/C79pKf6MS9X_4.png);
 
     height: 30vw;
 
@@ -24,5 +35,28 @@ p{
 }
 
 body {
-    background-color: #002400;
+    background-color: var(--bgc);
+}
+
+.content {
+    background-color: var(--cbgc);
+    border-radius: .375rem;
+}
+
+a.active {
+    background-color: #7F8557bb !important;
+}
+
+a.nav-link {
+    color: #fff !important;
+    transition: text-shadow 0.5s, background-color 0.5s;
+}
+
+a.nav-link:hover {
+    background-color: #7F855722;
+    text-shadow: 0 0 3px #fff;
+}
+
+.nav-pills a{
+    margin-left: 3px;
 }
