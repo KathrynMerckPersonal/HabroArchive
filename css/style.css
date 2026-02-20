@@ -17,6 +17,10 @@
 	src: url(fonts/RuntimeRegular-m2Odx.otf);
 }
 
+h1, h2, h3, h4, h5 {
+    font-family: habrohead;
+}
+
 p{
 	font-family: alice;
 }
@@ -34,6 +38,11 @@ p{
     position: relative;
 }
 
+.title {
+    text-align: center;
+    font-size: 5em;
+}
+
 body {
     background-color: var(--bgc);
 }
@@ -41,6 +50,7 @@ body {
 .content {
     background-color: var(--cbgc);
     border-radius: .375rem;
+    color: white;
 }
 
 a.active {
