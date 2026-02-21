@@ -53,6 +53,14 @@ body {
     color: white;
 }
 
+.tornPage {
+    background-image: url(../images/IMG_0390.PNG), url(../images/IMG_0393.PNG), url(../images/IMG_0383.PNG);
+    background-repeat: no-repeat, no-repeat, repeat-y;
+    background-position: top center, bottom center, top center;
+    background-size: 100% auto, 100% auto, 100% auto;
+    color: black;
+}
+
 a.active {
     background-color: #7F8557bb !important;
 }
