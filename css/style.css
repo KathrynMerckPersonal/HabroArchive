@@ -43,6 +43,12 @@ p{
     font-size: 5em;
 }
 
+.subtitle {
+    text-align: justify;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
 body {
     background-color: var(--bgc);
 }
@@ -51,6 +57,8 @@ body {
     background-color: var(--cbgc);
     border-radius: .375rem;
     color: white;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .tornPage {
@@ -77,4 +85,14 @@ a.nav-link:hover {
 
 .nav-pills a{
     margin-left: 3px;
+}
+
+a {
+    color: #e8ce8e;
+    transition: text-shadow 0.5s;
+    text-decoration: none;
+}
+
+a:hover {
+    text-shadow: 0 0 3px #e8ce8c;
 }
