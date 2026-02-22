@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "C:/Users/Catyd/OneDrive/Documents/GitHub/HabroArchive/index.html",
+            "url": "http://localhost:8000",
             "webRoot": "${workspaceFolder}"
         }
     ]
