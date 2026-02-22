@@ -43,6 +43,10 @@ p{
     font-size: 5em;
 }
 
+.archive-title {
+    text-align: center;
+}
+
 .subtitle {
     text-align: justify;
     padding-left: 2em;
