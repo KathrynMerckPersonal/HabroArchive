@@ -103,4 +103,6 @@ a:hover {
 
 .insta-card {
     padding: 0;
+    max-height: 400px;
+    overflow: hidden;
 }
