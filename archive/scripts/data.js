@@ -2,7 +2,6 @@
 let fileData;
 $.getJSON("scripts/insta.json",
     function (data) {
-        console.log(data);
         fileData = data;
     }
 );
@@ -21,7 +20,7 @@ class iPost {
     createCard(){
         const pattern = /mp4$/;
         const CId = "carousel" + this.folder;
-        let cardDiv = $(`<div></div>`).addClass("card insta-card");
+        let cardDiv = $(`<div></div>`).addClass("card insta-card insta-card-hidden");
         
         let quant = fileData[this.index].Count;
         let urls = fileData[this.index].value; 
@@ -49,7 +48,6 @@ class iPost {
                 } else {
                     ci.append($("<img>").attr("src", ".." + urls[i]).addClass("d-block w-100 card-img-top"));
                 }
-                console.log(this.index, this.desc, ".." + urls[i]);
                 carouselInner.append(ci);
                 // create button to append
                 // create img to append
@@ -72,7 +70,10 @@ class iPost {
         //end carousel
         let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").addClass("card-text").append(this.desc));
         cardDiv.append(cbody);        
-        let wrapper = $("<div></div>").addClass("col").append(cardDiv);
+        let wrapper = $("<div></div>").addClass("col insta-col insta-col-hidden").append(cardDiv);
+        cbody.click(function () { 
+            $(this).parent().toggleClass("insta-card-shown insta-card-hidden");
+        });
         return wrapper;
         // return cSlide;
     }
@@ -86,14 +87,13 @@ Papa.parse(
     {
         download: true,
         complete: function(results) {
-	        console.log("Parsing complete:", results);
             for(result of results.data) {
                 const postItem = new iPost(Number(result.index), result.index, result.desc, result.accessed, result.posted);
                 iPostSet.push(postItem);
                 $("#post-container").prepend(postItem.createCard());
             }
-            console.log(iPostSet);
         },
         header: true
     }
 )
+
