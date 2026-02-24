@@ -100,3 +100,7 @@ a {
 a:hover {
     text-shadow: 0 0 3px #e8ce8c;
 }
+
+.insta-card {
+    padding: 0;
+}
