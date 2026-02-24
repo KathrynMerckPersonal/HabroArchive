@@ -45,9 +45,9 @@ class iPost {
                     ci.append($("<video></video>").attr({
                         "src": ".." + urls[i],
                         "controls": ""
-                    }).addClass("d-block w-100"));
+                    }).addClass("d-block w-100 card-img-top"));
                 } else {
-                    ci.append($("<img>").attr("src", ".." + urls[i]).addClass("d-block w-100"));
+                    ci.append($("<img>").attr("src", ".." + urls[i]).addClass("d-block w-100 card-img-top"));
                 }
                 console.log(this.index, this.desc, ".." + urls[i]);
                 carouselInner.append(ci);
