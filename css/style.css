@@ -17,7 +17,7 @@
 	src: url(fonts/RuntimeRegular-m2Odx.otf);
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, .read-more, .posted-date {
     font-family: habrohead;
 }
 
@@ -101,16 +101,51 @@ a:hover {
     text-shadow: 0 0 3px #e8ce8c;
 }
 
+
 .insta-card {
     padding: 0;
-    transition: height 1s ease;
+    transition: max-height 1s ease;
     overflow: hidden;
+    max-height: 450px;
+    position: relative;
 }
 
-.insta-card-hidden {
-    height: 450px;
+.read-more {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background-image: linear-gradient(to top, #ffffff, #ffffff, #ffffff44, #ffffff00);
+    padding-bottom: 5px;
+    padding-top: 40px;
+    border: none;
+    text-transform: uppercase;
+    color: var(--bgc);
+    transition: opacity 1s linear;
 }
 
-.insta-card-shown {
-    height: 100%;
+.read-more:hover {
+    color: #666666;
+}
+
+.posted-date {
+    text-align: end;
+    font-style: italic;
+    color: var(--bgc);
+}
+
+.reverse-chron {
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+}
+
+.sort-by + label{
+    border: 1px solid white;
+    color: white;
+}
+
+.sort-by:checked + label{
+    background-color: white !important;
+    border: 1px solid white !important;
+    color: var(--cbgc) !important;
 }

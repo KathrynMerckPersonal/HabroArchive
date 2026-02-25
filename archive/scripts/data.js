@@ -68,14 +68,15 @@ class iPost {
             $("<span></span>").addClass("visually-hidden").append("Next")));
         }
         //end carousel
+        cardDiv.append($("<div></div>").addClass("card-footer posted-date").append("POSTED " + this.pDate.toLocaleDateString()));
         let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").addClass("card-text").append(this.desc));
         cardDiv.append(cbody);        
-        let wrapper = $("<div></div>").addClass("col insta-col insta-col-hidden").append(cardDiv);
-        cbody.click(function () { 
-            $(this).parent().toggleClass("insta-card-shown insta-card-hidden");
-        });
+        let wrapper = $("<div></div>").addClass("col").append(cardDiv);
+        cbody.click(expandCard);
+        let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
+        foot.click(expandCard);
+        cardDiv.append(foot);
         return wrapper;
-        // return cSlide;
     }
 }
 
@@ -97,3 +98,21 @@ Papa.parse(
     }
 )
 
+function expandCard () { 
+    $(this).parent().toggleClass("insta-card-hidden");
+    if($(this).parent().hasClass("insta-card-hidden")) {
+        $(this).parent().css("max-height", "450px");
+        if($(this).hasClass("read-more")) {
+            $(this).css("opacity", 1);
+        } else {
+            $(this).next().css("opacity", 1);
+        }
+    } else {
+        $(this).parent().css("max-height", $(this).parent()[0].scrollHeight + "px");
+        if($(this).hasClass("read-more")) {
+            $(this).css("opacity", 0);
+        } else {
+            $(this).next().css("opacity", 0);
+        }
+    }
+}
