@@ -1,3 +1,5 @@
+$(document).ready(function () {
+    
 
 let fileData;
 $.getJSON("scripts/insta.json",
@@ -116,3 +118,16 @@ function expandCard () {
         }
     }
 }
+
+
+$("#order-newest").click(function () { 
+    $("#post-container").removeClass("reverse-chron");
+    console.log("n");
+});
+
+$("#order-oldest").click(function () { 
+    $("#post-container").addClass("reverse-chron");
+    console.log("n");
+});
+
+});

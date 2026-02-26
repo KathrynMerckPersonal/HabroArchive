@@ -40,7 +40,13 @@ p{
 
 .title {
     text-align: center;
-    font-size: 5em;
+    font-size: 5rem;
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 12vw;
+    }
 }
 
 .archive-title {
@@ -148,4 +154,17 @@ a:hover {
     background-color: white !important;
     border: 1px solid white !important;
     color: var(--cbgc) !important;
+}
+
+.sort-by + label:hover{
+    border: 1px solid white !important;
+    color: white !important;
+    text-shadow: 0 0 3px white;
+}
+
+.sort-by:checked + label:hover{
+    background-color: white !important;
+    border: 1px solid white !important;
+    color: var(--cbgc) !important;
+    text-shadow: 0 0 3px var(--cbgc);
 }
