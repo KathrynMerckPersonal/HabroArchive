@@ -5,6 +5,8 @@
     --bgc: rgb(var(--bgr), var(--bgg), var(--bgb));
     --bgt: rgba(var(--bgr), var(--bgg), var(--bgb), 0);
     --cbgc: #7F8557;
+    --fadet: .5;
+    --fadeg: rgba(var(--bgr), var(--bgg), var(--bgb), var(--fadet));
 }
 
 @font-face {
@@ -46,6 +48,20 @@ p{
 @media (max-width: 576px) {
     .title {
         font-size: 12vw;
+    }
+    .header {
+        --grad: 15%;
+        --gradend: 85%;
+        background-image: linear-gradient(to top, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), linear-gradient(to right, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), url(../images/IMG_0447.png);
+
+        height: 80vw;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: sticky;
+        top: 0;
+        z-index: -1;
     }
 }
 
