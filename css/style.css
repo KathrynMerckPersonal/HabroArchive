@@ -30,13 +30,6 @@ p{
 	font-family: alice;
 }
 
-.main {
-    perspective: 1px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
 .header {
     --grad: 15%;
     --gradend: 85%;
@@ -75,6 +68,14 @@ p{
         z-index: 2;
         transform-origin: 51.5% 0 ;
     }
+    
+    .main {
+        perspective: 1px;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
 }
 
 .archive-title {
@@ -200,7 +201,7 @@ a:hover {
 .mobile-header {
     position: fixed;
     top: 10px;
-    right: 10px;
+    right: 30px;
     font-size: 2em;
     color: white;
     text-shadow: 0 0 6px var(--cbgc);
@@ -225,5 +226,9 @@ a:hover {
 #mobile-nav-after{
     height: 1em;
     /* background-color: #666666; */
+}
+
+#mobile-header-wrap {
+    perspective: none;
 }
 
