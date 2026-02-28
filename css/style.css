@@ -7,7 +7,10 @@
     --cbgc: #7F8557;
     --fadet: .5;
     --fadeg: rgba(var(--bgr), var(--bgg), var(--bgb), var(--fadet));
+    --linkc: #e8ce8e;
 }
+
+
 
 @font-face {
 	font-family: alice;
@@ -25,6 +28,13 @@ h1, h2, h3, h4, h5, .read-more, .posted-date {
 
 p{
 	font-family: alice;
+}
+
+.main {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .header {
@@ -50,6 +60,7 @@ p{
         font-size: 12vw;
     }
     .header {
+        transform: translateZ(-1px) scale(2) translateY(-175px);
         --grad: 15%;
         --gradend: 85%;
         background-image: linear-gradient(to top, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), linear-gradient(to right, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), url(../images/IMG_0447.png);
@@ -59,9 +70,10 @@ p{
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        position: sticky;
+        position: static;
         top: 0;
-        z-index: -1;
+        z-index: 2;
+        transform-origin: 51.5% 0 ;
     }
 }
 
@@ -78,6 +90,8 @@ body {
 }
 
 .content {
+    transform: translateZ(0);
+    position: relative;
     background-color: var(--cbgc);
     border-radius: .375rem;
     color: white;
@@ -112,13 +126,13 @@ a.nav-link:hover {
 }
 
 a {
-    color: #e8ce8e;
+    color: var(--linkc);
     transition: text-shadow 0.5s;
     text-decoration: none;
 }
 
 a:hover {
-    text-shadow: 0 0 3px #e8ce8c;
+    text-shadow: 0 0 3px --linkc;
 }
 
 
@@ -190,4 +204,26 @@ a:hover {
     font-size: 2em;
     color: white;
     text-shadow: 0 0 6px var(--cbgc);
+    z-index: 2;
 }
+
+#mobile-nav {
+    position: fixed;
+    /* height: 100%; */
+    background-color: var(--cbgc);
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+}
+
+#mobile-nav > ul > li {
+    display: block;
+    width: 80%;
+}
+
+#mobile-nav-after{
+    height: 1em;
+    /* background-color: #666666; */
+}
+
