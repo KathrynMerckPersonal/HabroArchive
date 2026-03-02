@@ -1,0 +1,49 @@
+{
+  "address": "https://www.pinterest.com/pin/822892163204203702/",
+  "dataMode": "json",
+  "hotlinkProtected": false,
+  "connectionTimeOut": -1,
+  "otherPropertiesMap": {
+    "CustomFolderName": "Symphony_Sonata/_created",
+    "CustomFileName": "822892163204203702",
+    "FileExtensionHandleMethod": "workoutExtension",
+    "_json": {
+      "id": "822892163204203702",
+      "url": "https://www.pinterest.com/pin/822892163204203702/",
+      "type": "pin",
+      "title": "alice and hatter first designs",
+      "gridTitle": "alice and hatter first designs",
+      "description": "the first drawings of alice and hatter from habromania\nthis was back when alice was still a kid instead of 19 and everyone looked wild(er) then they do now. \n\nFrom HABROMANIA\n\nartist is symphony_sonata (me mama)",
+      "isStoryPin": true,
+      "isCarousel": false,
+      "doneByMe": false,
+      "favouritedByMe": false,
+      "isRepin": false,
+      "storyPinItemCount": 1,
+      "carouselItemCount": 0,
+      "repinCount": 119,
+      "favouriteUserCount": -1,
+      "creator": {
+        "username": "Symphony_Sonata",
+        "url": "https://www.pinterest.com/Symphony_Sonata/",
+        "name": "Symphony Sonata",
+        "icon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "board": {
+        "url": "https://www.pinterest.com/Symphony_Sonata/habromania/",
+        "name": "HABROMANIA",
+        "type": "board",
+        "ownerUsername": "Symphony_Sonata",
+        "ownerName": "Symphony Sonata",
+        "ownerUrl": "https://www.pinterest.com/Symphony_Sonata/",
+        "ownerIcon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "media": [
+        {
+          "url": "https://i.pinimg.com/originals/db/8d/7f/db8d7f4c200744a915f16a9d93dba87f.jpg",
+          "type": "image"
+        }
+      ]
+    }
+  }
+}

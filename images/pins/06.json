@@ -1,0 +1,44 @@
+{
+  "address": "https://www.pinterest.com/pin/822892163185584730/",
+  "dataMode": "json",
+  "hotlinkProtected": false,
+  "connectionTimeOut": -1,
+  "otherPropertiesMap": {
+    "CustomFolderName": "Symphony_Sonata/_created",
+    "CustomFileName": "822892163185584730",
+    "FileExtensionHandleMethod": "workoutExtension",
+    "_json": {
+      "id": "822892163185584730",
+      "url": "https://www.pinterest.com/pin/822892163185584730/",
+      "type": "pin",
+      "title": "",
+      "gridTitle": "",
+      "description": "Sydney Collings (@symphony_sonata) • Instagram photos and videos",
+      "link": "https://www.instagram.com/p/ClEznsjumMF/",
+      "isStoryPin": false,
+      "isCarousel": false,
+      "doneByMe": false,
+      "favouritedByMe": false,
+      "isRepin": false,
+      "storyPinItemCount": 0,
+      "carouselItemCount": 0,
+      "repinCount": 46,
+      "favouriteUserCount": -1,
+      "board": {
+        "url": "https://www.pinterest.com/Symphony_Sonata/habromania/",
+        "name": "HABROMANIA",
+        "type": "board",
+        "ownerUsername": "Symphony_Sonata",
+        "ownerName": "Symphony Sonata",
+        "ownerUrl": "https://www.pinterest.com/Symphony_Sonata/",
+        "ownerIcon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "media": [
+        {
+          "url": "https://i.pinimg.com/originals/7f/85/46/7f8546bbf2577e595fceb326c828ee69.png",
+          "type": "image"
+        }
+      ]
+    }
+  }
+}

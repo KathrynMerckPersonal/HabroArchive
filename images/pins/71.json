@@ -1,0 +1,49 @@
+{
+  "address": "https://www.pinterest.com/pin/822892163201874309/",
+  "dataMode": "json",
+  "hotlinkProtected": false,
+  "connectionTimeOut": -1,
+  "otherPropertiesMap": {
+    "CustomFolderName": "Symphony_Sonata/_created",
+    "CustomFileName": "822892163201874309",
+    "FileExtensionHandleMethod": "workoutExtension",
+    "_json": {
+      "id": "822892163201874309",
+      "url": "https://www.pinterest.com/pin/822892163201874309/",
+      "type": "pin",
+      "title": "charlie and cordelia sketch",
+      "gridTitle": "charlie and cordelia sketch",
+      "description": " ",
+      "isStoryPin": true,
+      "isCarousel": false,
+      "doneByMe": false,
+      "favouritedByMe": false,
+      "isRepin": false,
+      "storyPinItemCount": 1,
+      "carouselItemCount": 0,
+      "repinCount": 157,
+      "favouriteUserCount": -1,
+      "creator": {
+        "username": "Symphony_Sonata",
+        "url": "https://www.pinterest.com/Symphony_Sonata/",
+        "name": "Symphony Sonata",
+        "icon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "board": {
+        "url": "https://www.pinterest.com/Symphony_Sonata/habromania/",
+        "name": "HABROMANIA",
+        "type": "board",
+        "ownerUsername": "Symphony_Sonata",
+        "ownerName": "Symphony Sonata",
+        "ownerUrl": "https://www.pinterest.com/Symphony_Sonata/",
+        "ownerIcon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "media": [
+        {
+          "url": "https://i.pinimg.com/originals/25/b6/66/25b666017be4d40b999abe4af10d962d.jpg",
+          "type": "image"
+        }
+      ]
+    }
+  }
+}

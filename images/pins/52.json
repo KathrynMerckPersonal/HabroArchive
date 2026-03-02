@@ -1,0 +1,49 @@
+{
+  "address": "https://www.pinterest.com/pin/822892163199149490/",
+  "dataMode": "json",
+  "hotlinkProtected": false,
+  "connectionTimeOut": -1,
+  "otherPropertiesMap": {
+    "CustomFolderName": "Symphony_Sonata/_created",
+    "CustomFileName": "822892163199149490",
+    "FileExtensionHandleMethod": "workoutExtension",
+    "_json": {
+      "id": "822892163199149490",
+      "url": "https://www.pinterest.com/pin/822892163199149490/",
+      "type": "pin",
+      "title": "doctor, I can't tell if I'm not me",
+      "gridTitle": "doctor, I can't tell if I'm not me",
+      "description": "by symphony_sonata - Charlie and Alice from HABROMANIA",
+      "isStoryPin": true,
+      "isCarousel": false,
+      "doneByMe": false,
+      "favouritedByMe": false,
+      "isRepin": false,
+      "storyPinItemCount": 1,
+      "carouselItemCount": 0,
+      "repinCount": 218,
+      "favouriteUserCount": -1,
+      "creator": {
+        "username": "Symphony_Sonata",
+        "url": "https://www.pinterest.com/Symphony_Sonata/",
+        "name": "Symphony Sonata",
+        "icon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "board": {
+        "url": "https://www.pinterest.com/Symphony_Sonata/habromania/",
+        "name": "HABROMANIA",
+        "type": "board",
+        "ownerUsername": "Symphony_Sonata",
+        "ownerName": "Symphony Sonata",
+        "ownerUrl": "https://www.pinterest.com/Symphony_Sonata/",
+        "ownerIcon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "media": [
+        {
+          "url": "https://i.pinimg.com/originals/ac/37/13/ac3713f054034be7e52c96407d7c8939.jpg",
+          "type": "image"
+        }
+      ]
+    }
+  }
+}

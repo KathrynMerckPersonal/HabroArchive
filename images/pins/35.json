@@ -1,0 +1,49 @@
+{
+  "address": "https://www.pinterest.com/pin/822892163198801801/",
+  "dataMode": "json",
+  "hotlinkProtected": false,
+  "connectionTimeOut": -1,
+  "otherPropertiesMap": {
+    "CustomFolderName": "Symphony_Sonata/_created",
+    "CustomFileName": "822892163198801801",
+    "FileExtensionHandleMethod": "workoutExtension",
+    "_json": {
+      "id": "822892163198801801",
+      "url": "https://www.pinterest.com/pin/822892163198801801/",
+      "type": "pin",
+      "title": "toska the clown",
+      "gridTitle": "toska the clown",
+      "description": " ",
+      "isStoryPin": true,
+      "isCarousel": false,
+      "doneByMe": false,
+      "favouritedByMe": false,
+      "isRepin": false,
+      "storyPinItemCount": 1,
+      "carouselItemCount": 0,
+      "repinCount": 141,
+      "favouriteUserCount": -1,
+      "creator": {
+        "username": "Symphony_Sonata",
+        "url": "https://www.pinterest.com/Symphony_Sonata/",
+        "name": "Symphony Sonata",
+        "icon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "board": {
+        "url": "https://www.pinterest.com/Symphony_Sonata/habromania/",
+        "name": "HABROMANIA",
+        "type": "board",
+        "ownerUsername": "Symphony_Sonata",
+        "ownerName": "Symphony Sonata",
+        "ownerUrl": "https://www.pinterest.com/Symphony_Sonata/",
+        "ownerIcon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "media": [
+        {
+          "url": "https://i.pinimg.com/originals/07/f8/07/07f80712b657db49bd98bd2f3d7a065b.jpg",
+          "type": "image"
+        }
+      ]
+    }
+  }
+}

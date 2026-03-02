@@ -1,0 +1,49 @@
+{
+  "address": "https://www.pinterest.com/pin/822892163200209884/",
+  "dataMode": "json",
+  "hotlinkProtected": false,
+  "connectionTimeOut": -1,
+  "otherPropertiesMap": {
+    "CustomFolderName": "Symphony_Sonata/_created",
+    "CustomFileName": "822892163200209884",
+    "FileExtensionHandleMethod": "workoutExtension",
+    "_json": {
+      "id": "822892163200209884",
+      "url": "https://www.pinterest.com/pin/822892163200209884/",
+      "type": "pin",
+      "title": "cordelia and charlie's kid",
+      "gridTitle": "cordelia and charlie's kid",
+      "description": " ",
+      "isStoryPin": true,
+      "isCarousel": false,
+      "doneByMe": false,
+      "favouritedByMe": false,
+      "isRepin": false,
+      "storyPinItemCount": 1,
+      "carouselItemCount": 0,
+      "repinCount": 321,
+      "favouriteUserCount": -1,
+      "creator": {
+        "username": "Symphony_Sonata",
+        "url": "https://www.pinterest.com/Symphony_Sonata/",
+        "name": "Symphony Sonata",
+        "icon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "board": {
+        "url": "https://www.pinterest.com/Symphony_Sonata/symphony-sonata-art/",
+        "name": "Symphony Sonata art",
+        "type": "board",
+        "ownerUsername": "Symphony_Sonata",
+        "ownerName": "Symphony Sonata",
+        "ownerUrl": "https://www.pinterest.com/Symphony_Sonata/",
+        "ownerIcon": "https://i.pinimg.com/140x140_RS/de/dd/7f/dedd7fb60f9e6c09779a47a577fdb1eb.jpg"
+      },
+      "media": [
+        {
+          "url": "https://i.pinimg.com/originals/46/1c/24/461c243fb0a9b875281ff877ca1cfba7.jpg",
+          "type": "image"
+        }
+      ]
+    }
+  }
+}
