@@ -33,7 +33,7 @@ p{
 .header {
     --grad: 15%;
     --gradend: 85%;
-    background-image: linear-gradient(to top, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), linear-gradient(to right, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), url(../images/C79pKf6MS9X_4.png);
+    background-image: linear-gradient(to top, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), linear-gradient(to right, var(--bgc) 0%, var(--bgt) var(--grad) var(--gradend), var(--bgc) 100%), url(../images/IMG_0461.png);
 
     height: 30vw;
 

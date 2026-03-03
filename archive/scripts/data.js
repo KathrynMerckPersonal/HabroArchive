@@ -1,10 +1,17 @@
 $(document).ready(function () {
     
 
-let fileData;
+let PostData;
+let HData;
 $.getJSON("scripts/insta.json",
     function (data) {
-        fileData = data;
+        PostData = data;
+    }
+);
+
+$.getJSON("scripts/stories.json",
+    function (data) {
+        HData = data;
     }
 );
 
@@ -24,8 +31,8 @@ class iPost {
         const CId = "carousel" + this.folder;
         let cardDiv = $(`<div></div>`).addClass("card insta-card insta-card-hidden");
         
-        let quant = fileData[this.index].Count;
-        let urls = fileData[this.index].value; 
+        let quant = PostData[this.index].Count;
+        let urls = PostData[this.index].value; 
         if(quant == 1 ) {
             cardDiv.append($("<img>").attr("src", ".." + urls[0]).addClass("card-img-top"));
         } else {
@@ -82,10 +89,43 @@ class iPost {
     }
 }
 
+class highlights {
+    constructor(i, group, accessed, posted) {
+        this.index = i;
+        this.group = group;
+        this.accessed = accessed;
+        this.posted = posted;
+        this.pDate = new Date(posted);
+        this.chron = this.pDate.valueOf();
+    }
+
+    createCard(){
+        const pattern = /mp4$/;
+        let cardDiv = $(`<div></div>`).addClass("card h-card h-card-hidden");
+        let url = HData[this.index-1];
+        if(pattern.test(url)) {
+            cardDiv.append($("<video></video>").attr({
+                "src": "../images/stories/" + url,
+                "controls": ""
+            }).addClass("d-block w-100 card-img-top"));
+            console.log( "../images/stories/" + url);
+        } else {
+            cardDiv.append($("<img>").attr("src", ".." + url).addClass("d-block w-100 card-img-top"));
+            console.log( "../images/stories/" + url);
+
+        }
+        let ctitle = $("<did></div>").addClass("card-title").append(this.group);
+        let cbody = $("<div></div>").addClass("card-subtitle").append(this.pDate.toLocaleDateString());
+        cardDiv.append(ctitle, cbody);        
+        let wrapper = $("<div></div>").addClass("col").append(cardDiv);
+        return wrapper;
+    }
+}
+
 const iPostSet = [];
 
-
-Papa.parse(
+if($("#post-container").hasClass("insta")) {
+    Papa.parse(
     `https://docs.google.com/spreadsheets/d/e/2PACX-1vSXzA9ZHAVXMEjfUTS_JBtk5iz7X1i4auwWJHwErdmDYsuYeEcuL8h78sXxxiFvgtYWBWRt8wx8RHl2/pub?gid=0&single=true&output=csv`,
     {
         download: true,
@@ -99,6 +139,24 @@ Papa.parse(
         header: true
     }
 )
+}
+
+
+if($("#post-container").hasClass("highlights")) {
+    Papa.parse(
+    `https://docs.google.com/spreadsheets/d/e/2PACX-1vSXzA9ZHAVXMEjfUTS_JBtk5iz7X1i4auwWJHwErdmDYsuYeEcuL8h78sXxxiFvgtYWBWRt8wx8RHl2/pub?gid=637674340&single=true&output=csv`,
+    {
+        download: true,
+        complete: function(results) {
+            for(result of results.data) {
+                const hItem = new highlights(Number(result.index), result.group, result.accessed, result.date);
+                $("#post-container").prepend(hItem.createCard());
+            }
+        },
+        header: true
+    }
+)
+}
 
 function expandCard () { 
     $(this).parent().toggleClass("insta-card-hidden");
