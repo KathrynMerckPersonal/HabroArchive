@@ -15,6 +15,13 @@ $.getJSON("scripts/stories.json",
     }
 );
 
+function bufferCards (place) {
+    let cola = $("<div></div>").addClass("col h-col h-col-3 h-col-2 h-col-1");
+    let colb = $("<div></div>").addClass("col h-col h-col-2 h-col-1");
+    let colc = $("<div></div>").addClass("col h-col h-col-1");
+    place.prepend(cola, colb, colc);
+}
+
 class iPost {
     constructor(i, folder, desc, accessed, posted) {
         this.index = i;
@@ -110,19 +117,19 @@ class highlights {
             }).addClass("d-block w-100 card-img-top"));
             console.log( "../images/stories/" + url);
         } else {
-            cardDiv.append($("<img>").attr("src", ".." + url).addClass("d-block w-100 card-img-top"));
+            cardDiv.append($("<img>").attr("src", "../images/stories/" + url).addClass("d-block w-100 card-img-top"));
             console.log( "../images/stories/" + url);
 
         }
-        let ctitle = $("<did></div>").addClass("card-title").append(this.group);
-        let cbody = $("<div></div>").addClass("card-subtitle").append(this.pDate.toLocaleDateString());
+        let ctitle = $("<h4></h4>").addClass("card-title text-center").append('"' + this.group + '"');
+        let cbody = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
         cardDiv.append(ctitle, cbody);        
         let wrapper = $("<div></div>").addClass("col").append(cardDiv);
         return wrapper;
     }
 }
 
-const iPostSet = [];
+let postnum = 0;
 
 if($("#post-container").hasClass("insta")) {
     Papa.parse(
@@ -132,9 +139,11 @@ if($("#post-container").hasClass("insta")) {
         complete: function(results) {
             for(result of results.data) {
                 const postItem = new iPost(Number(result.index), result.index, result.desc, result.accessed, result.posted);
-                iPostSet.push(postItem);
                 $("#post-container").prepend(postItem.createCard());
+                postnum++;
             }
+            bufferCards($("#post-container"));
+            calcBuffer();
         },
         header: true
     }
@@ -151,11 +160,14 @@ if($("#post-container").hasClass("highlights")) {
             for(result of results.data) {
                 const hItem = new highlights(Number(result.index), result.group, result.accessed, result.date);
                 $("#post-container").prepend(hItem.createCard());
+                postnum++;
             }
+            bufferCards($("#post-container"));
+            calcBuffer();
         },
         header: true
     }
-)
+    );
 }
 
 function expandCard () { 
@@ -178,14 +190,38 @@ function expandCard () {
 }
 
 
+function calcBuffer () {
+    let w = $(document).width();
+    let n;
+    $(".h-col").css("display", "initial");
+    if(w < 576) {
+        n = 1;
+    } else if(w < 768) {
+        // $(".h-col-3").css("display", "initial");
+        n = 2;
+    } else if(w < 992) {
+        // $(".h-col-2").css("display", "initial");
+        n = 3;
+    } else {
+        // $(".h-col-1").css("display", "initial");
+        n = 4
+    }
+    if(postnum % n) {
+        console.log(n, postnum, (postnum - 1) % n);
+        $(".h-col-" + (n-((postnum - 1) % n))).css("display", "none");
+    } else {
+        $(".h-col").css("display", "none");
+    }
+}
+
+$(window).resize(calcBuffer);
+
 $("#order-newest").click(function () { 
     $("#post-container").removeClass("reverse-chron");
-    console.log("n");
 });
 
 $("#order-oldest").click(function () { 
     $("#post-container").addClass("reverse-chron");
-    console.log("n");
 });
 
 });
