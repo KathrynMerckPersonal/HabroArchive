@@ -236,3 +236,6 @@ div:not(.reverse-chron) > .h-col {
     perspective: none;
 }
 
+.p-card {
+    height: 100%;
+}

@@ -2,6 +2,7 @@ $(document).ready(function () {
     
 
 let PostData;
+let Pindata;
 let HData;
 $.getJSON("scripts/insta.json",
     function (data) {
@@ -12,6 +13,12 @@ $.getJSON("scripts/insta.json",
 $.getJSON("scripts/stories.json",
     function (data) {
         HData = data;
+    }
+);
+
+$.getJSON("scripts/pins.json",
+    function (data) {
+        PinData = data;
     }
 );
 
@@ -84,7 +91,7 @@ class iPost {
             $("<span></span>").addClass("visually-hidden").append("Next")));
         }
         //end carousel
-        cardDiv.append($("<div></div>").addClass("card-footer posted-date").append("POSTED " + this.pDate.toLocaleDateString()));
+        cardDiv.append($("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString()));
         let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").addClass("card-text").append(this.desc));
         cardDiv.append(cbody);        
         let wrapper = $("<div></div>").addClass("col").append(cardDiv);
@@ -129,8 +136,34 @@ class highlights {
     }
 }
 
-let postnum = 0;
+class pins {
+    constructor(i, title, desc, accessed, posted) {
+        this.index = i;
+        this.title = title;
+        this.desc = desc;
+        this.accessed = accessed;
+        this.posted = posted;
+        this.pDate = new Date(posted);
+        this.chron = this.pDate.valueOf();
+    }
 
+    createCard(){
+        const pattern = /mp4$/;
+        let cardDiv = $(`<div></div>`).addClass("card p-card p-card-hidden");
+        let url = PinData[this.index-1];
+        cardDiv.append($("<img>").attr("src", "../images/pins/" + url).addClass("d-block w-100 card-img-top"));
+        console.log( "../images/pins/" + url);
+        let ctitle = $("<h5></h5>").addClass("card-header card-title text-center").append(this.title);
+        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc));
+        let cfoot = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
+        cardDiv.append(ctitle, cbody, cfoot);        
+        let wrapper = $("<div></div>").addClass("col").append(cardDiv);
+        return wrapper;
+    }
+}
+
+let postnum = 0;
+//iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 if($("#post-container").hasClass("insta")) {
     Papa.parse(
     `https://docs.google.com/spreadsheets/d/e/2PACX-1vSXzA9ZHAVXMEjfUTS_JBtk5iz7X1i4auwWJHwErdmDYsuYeEcuL8h78sXxxiFvgtYWBWRt8wx8RHl2/pub?gid=0&single=true&output=csv`,
@@ -150,7 +183,7 @@ if($("#post-container").hasClass("insta")) {
 )
 }
 
-
+//hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 if($("#post-container").hasClass("highlights")) {
     Papa.parse(
     `https://docs.google.com/spreadsheets/d/e/2PACX-1vSXzA9ZHAVXMEjfUTS_JBtk5iz7X1i4auwWJHwErdmDYsuYeEcuL8h78sXxxiFvgtYWBWRt8wx8RHl2/pub?gid=637674340&single=true&output=csv`,
@@ -169,6 +202,27 @@ if($("#post-container").hasClass("highlights")) {
     }
     );
 }
+
+//pppppppppppppppppppppppppppppppppppppppppp
+if($("#post-container").hasClass("pins")) {
+    Papa.parse(
+    `https://docs.google.com/spreadsheets/d/e/2PACX-1vSXzA9ZHAVXMEjfUTS_JBtk5iz7X1i4auwWJHwErdmDYsuYeEcuL8h78sXxxiFvgtYWBWRt8wx8RHl2/pub?gid=1062566579&single=true&output=csv`,
+    {
+        download: true,
+        complete: function(results) {
+            for(result of results.data) {
+                const pinItem = new pins(Number(result.index), result.title, result.desc, result.accessed, result.date);
+                $("#post-container").prepend(pinItem.createCard());
+                postnum++;
+            }
+            bufferCards($("#post-container"));
+            calcBuffer();
+        },
+        header: true
+    }
+    );
+}
+
 
 function expandCard () { 
     $(this).parent().toggleClass("insta-card-hidden");
@@ -197,13 +251,10 @@ function calcBuffer () {
     if(w < 576) {
         n = 1;
     } else if(w < 768) {
-        // $(".h-col-3").css("display", "initial");
         n = 2;
     } else if(w < 992) {
-        // $(".h-col-2").css("display", "initial");
         n = 3;
     } else {
-        // $(".h-col-1").css("display", "initial");
         n = 4
     }
     if(postnum % n) {
