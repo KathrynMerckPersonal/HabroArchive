@@ -22,7 +22,7 @@
 	src: url(fonts/RuntimeRegular-m2Odx.otf);
 }
 
-h1, h2, h3, h4, h5, .read-more, .posted-date {
+h1, h2, h3, h4, h5, h6, .read-more, .posted-date {
     font-family: habrohead;
 }
 
@@ -137,12 +137,16 @@ a:hover {
 }
 
 
-.insta-card {
+.insta-card, .s-card {
     padding: 0;
     transition: max-height 1s ease;
     overflow: hidden;
     max-height: 450px;
     position: relative;
+}
+
+.s-card {
+    max-height: 600px;
 }
 
 .read-more {

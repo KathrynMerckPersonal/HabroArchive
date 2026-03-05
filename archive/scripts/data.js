@@ -43,7 +43,7 @@ class iPost {
     createCard(){
         const pattern = /mp4$/;
         const CId = "carousel" + this.folder;
-        let cardDiv = $(`<div></div>`).addClass("card insta-card insta-card-hidden");
+        let cardDiv = $(`<div></div>`).addClass("card insta-card card-hidden");
         
         let quant = PostData[this.index].Count;
         let urls = PostData[this.index].value; 
@@ -175,15 +175,18 @@ class shorts {
     }
 
     createCard(){
-        const pattern = /mp4$/;
-        let cardDiv = $(`<div></div>`).addClass("card p-card p-card-hidden");
-        let url = PinData[this.index-1];
-        cardDiv.append($("<img>").attr("src", "../images/pins/" + url).addClass("d-block w-100 card-img-top"));
-        console.log( "../images/pins/" + url);
-        let ctitle = $("<h5></h5>").addClass("card-header card-title text-center").append(this.title);
-        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc));
+        let cardDiv = $(`<div></div>`).addClass("card s-card card-hidden");
+        cardDiv.append($("<video></video>").attr({
+                        "src": "../images/shorts/" + this.index + ".mp4",
+                        "controls": ""
+                    }).addClass("d-block w-100 card-img-top"));
         let cfoot = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
-        cardDiv.append(ctitle, cbody, cfoot);        
+        let ctitle = $("<h6></h6>").addClass("card-header card-title text-center").append(this.title);
+        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc));
+        cbody.click(expandCard);
+        let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
+        foot.click(expandCard);
+        cardDiv.append(ctitle, cfoot, cbody, foot);        
         let wrapper = $("<div></div>").addClass("col").append(cardDiv);
         return wrapper;
     }
@@ -250,11 +253,35 @@ if($("#post-container").hasClass("pins")) {
     );
 }
 
+//ssssssssssssssssssssssssssssssssssssssssss
+if($("#post-container").hasClass("shorts")) {
+    Papa.parse(
+    `https://docs.google.com/spreadsheets/d/e/2PACX-1vSXzA9ZHAVXMEjfUTS_JBtk5iz7X1i4auwWJHwErdmDYsuYeEcuL8h78sXxxiFvgtYWBWRt8wx8RHl2/pub?gid=1454037593&single=true&output=csv`,
+    {
+        download: true,
+        complete: function(results) {
+            for(result of results.data) {
+                const shortsItem = new shorts(Number(result.index), result.title, result.description, result.accessed, result.date, result.link);
+                $("#post-container").prepend(shortsItem.createCard());
+                postnum++;
+            }
+            bufferCards($("#post-container"));
+            calcBuffer();
+        },
+        header: true
+    }
+    );
+}
+
 
 function expandCard () { 
-    $(this).parent().toggleClass("insta-card-hidden");
-    if($(this).parent().hasClass("insta-card-hidden")) {
-        $(this).parent().css("max-height", "450px");
+    $(this).parent().toggleClass("card-hidden");
+    if($(this).parent().hasClass("card-hidden")) {
+        if($(this).parent().hasClass("insta-card")) {
+            $(this).parent().css("max-height", "450px");
+        } else if ($(this).parent().hasClass("s-card")) {
+            $(this).parent().css("max-height", "600px");
+        }
         if($(this).hasClass("read-more")) {
             $(this).css("opacity", 1);
         } else {

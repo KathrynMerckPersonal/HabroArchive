@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HABROPEDIA - Archive</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="../css/style.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../images/Habromania_icon_fanmade.ico" type="image/x-icon">
+        <!-- High quality favicon provided by Lord Nae on Discord! -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+        <script src="scripts/data.js"></script>
+
+    </head>
+    <body>
+            <div id="mobile-header">
+            <div class="mobile-header d-sm-none">
+                <a data-bs-toggle="collapse" href="#mobile-nav" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-list"></i></a>
+            </div>
+            <div class="container-fluid collapse" id="mobile-nav">
+                    <ul class="nav nav-pills d-flex d-sm-none">
+                        <li class="nav-item mt-3">
+                            <a class="nav-link active" aria-current="page" href="./index.html">HOME</a>
+                        </li>
+                        <li class="nav-item dropdown mt-3">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="archive.html" role="button" aria-expanded="false" href="">ARCHIVE</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./posts-i.html" class="dropdown-item">INSTAGRAM POSTS</a></li>
+                                <li><a href="./stories-i.html" class="dropdown-item">INSTAGRAM STORIES</a></li>
+                                <li><a href="./videos-yt.html" class="dropdown-item">YOUTUBE VIDEOS</a></li>
+                                <li><a href="./shorts-yt.html" class="dropdown-item">YOUTUBE SHORTS</a></li>
+                                <li><a href="./pins.html" class="dropdown-item">PINS</a></li>
+                                <li><a href="./misc.html" class="dropdown-item">MISC</a></li>
+                                <li><a href="./gallery.html" class="dropdown-item">GALLERY</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" href="">THEORIES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="" class="dropdown-item">POSTS</a></li>
+                                <li><a href="" class="dropdown-item">THEORISTS</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <a class="nav-link" href="#">LINKS</a>
+                        </li>
+                    </ul>
+                    <div id="mobile-nav-after"> </div>
+            </div>
+            </div>
+        <div class="container-fluid main">
+            <div class="container-fluid header align-items-end d-flex">
+                <div class="container justify-content-end">
+                    <ul class="nav nav-pills justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">HOME</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="../archive.html" role="button" aria-expanded="false" aria-current="page" href="">ARCHIVE</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./posts-i.html" class="dropdown-item">INSTAGRAM POSTS</a></li>
+                                <li><a href="./stories-i.html" class="dropdown-item">INSTAGRAM STORIES</a></li>
+                                <li><a href="./videos-yt.html" class="dropdown-item">YOUTUBE VIDEOS</a></li>
+                                <li><a href="./shorts-yt.html" class="dropdown-item">YOUTUBE SHORTS</a></li>
+                                <li><a href="./pins.html" class="dropdown-item">PINS</a></li>
+                                <li><a href="./misc.html" class="dropdown-item">MISC</a></li>
+                                <li><a href="./gallery.html" class="dropdown-item">GALLERY</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" href="">THEORIES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="" class="dropdown-item">POSTS</a></li>
+                                <li><a href="" class="dropdown-item">THEORISTS</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">LINKS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container content mt-3">
+                <h2 class="archive-title">MISC</h2>
+            </div>
+            <div class="container content mt-3 mb-3">
+                <div class="row row-cols-1 pb-3 pt-3 clearfix ">
+                    <div class="col">
+                        <div class="btn-group" role="group" aria-label="sort-button">
+                            <input type="radio" class="btn-check sort-by" name="btnorder" id="order-newest" checked>
+                            <label class="btn" id="on-label" for="order-newest">Newest</label>
+                            <input type="radio" class="btn-check sort-by" name="btnorder" id="order-oldest">
+                            <label class="btn" id="oo-label" for="order-oldest">Oldest</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 pb-4 misc" id="post-container">
+                    NYI
+                </div>
+            </div>
+        </div>
+        <script src="./scripts/base.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </body>
+</html>
