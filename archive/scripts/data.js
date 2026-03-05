@@ -162,6 +162,33 @@ class pins {
     }
 }
 
+class shorts {
+    constructor(i, title, desc, accessed, posted, link) {
+        this.index = i;
+        this.title = title;
+        this.desc = desc;
+        this.accessed = accessed;
+        this.posted = posted;
+        this.pDate = new Date(posted);
+        this.chron = this.pDate.valueOf();
+        this.link = link;
+    }
+
+    createCard(){
+        const pattern = /mp4$/;
+        let cardDiv = $(`<div></div>`).addClass("card p-card p-card-hidden");
+        let url = PinData[this.index-1];
+        cardDiv.append($("<img>").attr("src", "../images/pins/" + url).addClass("d-block w-100 card-img-top"));
+        console.log( "../images/pins/" + url);
+        let ctitle = $("<h5></h5>").addClass("card-header card-title text-center").append(this.title);
+        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc));
+        let cfoot = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
+        cardDiv.append(ctitle, cbody, cfoot);        
+        let wrapper = $("<div></div>").addClass("col").append(cardDiv);
+        return wrapper;
+    }
+}
+
 let postnum = 0;
 //iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 if($("#post-container").hasClass("insta")) {
