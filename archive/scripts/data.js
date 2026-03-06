@@ -30,7 +30,7 @@ function bufferCards (place) {
 }
 
 class iPost {
-    constructor(i, folder, desc, accessed, posted) {
+    constructor(i, folder, desc, accessed, posted, link) {
         this.index = i;
         this.folder = folder;
         this.desc = desc;
@@ -38,6 +38,7 @@ class iPost {
         this.posted = posted;
         this.pDate = new Date(posted);
         this.chron = this.pDate.valueOf();
+        this.link = link;
     }
 
     createCard(){
@@ -72,7 +73,7 @@ class iPost {
                     ci.append($("<img>").attr("src", ".." + urls[i]).addClass("d-block w-100 card-img-top"));
                 }
                 carouselInner.append(ci);
-                // create button to append
+                // create button to append 
                 // create img to append
             }
             carouselI.children().first().addClass("active").attr("aria-current", "true");
@@ -92,25 +93,30 @@ class iPost {
         }
         //end carousel
         cardDiv.append($("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString()));
-        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").addClass("card-text").append(this.desc));
+        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").addClass("card-text").append(this.desc.replaceAll(/\\n/g, "<br>")));
         cardDiv.append(cbody);        
         let wrapper = $("<div></div>").addClass("col").append(cardDiv);
         cbody.click(expandCard);
         let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
         foot.click(expandCard);
         cardDiv.append(foot);
+        cardDiv.append($('<a></a>').attr({
+            "target" : "_blank",
+            "href" : this.link
+        }).addClass("cardLink bi bi-instagram"));
         return wrapper;
     }
 }
 
 class highlights {
-    constructor(i, group, accessed, posted) {
+    constructor(i, group, accessed, posted, link) {
         this.index = i;
         this.group = group;
         this.accessed = accessed;
         this.posted = posted;
         this.pDate = new Date(posted);
         this.chron = this.pDate.valueOf();
+        this.link = link;
     }
 
     createCard(){
@@ -122,22 +128,25 @@ class highlights {
                 "src": "../images/stories/" + url,
                 "controls": ""
             }).addClass("d-block w-100 card-img-top"));
-            console.log( "../images/stories/" + url);
+
         } else {
             cardDiv.append($("<img>").attr("src", "../images/stories/" + url).addClass("d-block w-100 card-img-top"));
-            console.log( "../images/stories/" + url);
 
         }
         let ctitle = $("<h4></h4>").addClass("card-title text-center").append('"' + this.group + '"');
         let cbody = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
-        cardDiv.append(ctitle, cbody);        
+        cardDiv.append(ctitle, cbody);
+        cardDiv.append($('<a></a>').attr({
+            "target" : "_blank",
+            "href" : this.link
+        }).addClass("cardLink bi bi-instagram"));
         let wrapper = $("<div></div>").addClass("col").append(cardDiv);
         return wrapper;
     }
 }
 
 class pins {
-    constructor(i, title, desc, accessed, posted) {
+    constructor(i, title, desc, accessed, posted, link) {
         this.index = i;
         this.title = title;
         this.desc = desc;
@@ -145,6 +154,7 @@ class pins {
         this.posted = posted;
         this.pDate = new Date(posted);
         this.chron = this.pDate.valueOf();
+        this.link = link;
     }
 
     createCard(){
@@ -152,11 +162,14 @@ class pins {
         let cardDiv = $(`<div></div>`).addClass("card p-card p-card-hidden");
         let url = PinData[this.index-1];
         cardDiv.append($("<img>").attr("src", "../images/pins/" + url).addClass("d-block w-100 card-img-top"));
-        console.log( "../images/pins/" + url);
         let ctitle = $("<h5></h5>").addClass("card-header card-title text-center").append(this.title);
-        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc));
+        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc.replaceAll(/\\n/g, "<br>")));
         let cfoot = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
-        cardDiv.append(ctitle, cbody, cfoot);        
+        cardDiv.append(ctitle, cbody, cfoot);
+        cardDiv.append($('<a></a>').attr({
+            "target" : "_blank",
+            "href" : this.link
+        }).addClass("cardLink bi bi-pinterest"));
         let wrapper = $("<div></div>").addClass("col").append(cardDiv);
         return wrapper;
     }
@@ -182,11 +195,54 @@ class shorts {
                     }).addClass("d-block w-100 card-img-top"));
         let cfoot = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
         let ctitle = $("<h6></h6>").addClass("card-header card-title text-center").append(this.title);
-        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc));
+        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc.replaceAll(/\\n/g, "<br>")));
         cbody.click(expandCard);
         let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
         foot.click(expandCard);
-        cardDiv.append(ctitle, cfoot, cbody, foot);        
+        cardDiv.append(ctitle, cfoot, cbody, foot);
+        cardDiv.append($('<a></a>').attr({
+            "target" : "_blank",
+            "href" : this.link
+        }).addClass("cardLink bi bi-youtube"));
+        let wrapper = $("<div></div>").addClass("col").append(cardDiv);
+        return wrapper;
+    }
+}
+
+class videos {
+    constructor(i, title, desc, accessed, posted, link) {
+        this.index = i;
+        this.title = title;
+        this.desc = desc;
+        this.accessed = accessed;
+        this.posted = posted;
+        this.pDate = new Date(posted);
+        this.chron = this.pDate.valueOf();
+        this.link = link;
+    }
+
+    createCard(){
+        if(this.index == 9) {
+            return studycard(this);
+        } else if (this.index == 16){
+            return youtubeCard(this);
+        }
+        let cardDiv = $(`<div></div>`).addClass("card v-card card-hidden");
+        cardDiv.append($("<video></video>").attr({
+                        "src": "../images/youtube/" + this.index + ".mp4",
+                        "controls": ""
+                    }).addClass("d-block w-100 card-img-top"));
+        let cfoot = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
+        let ctitle = $("<h6></h6>").addClass("card-header card-title text-center").append(this.title);
+        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc.replaceAll(/\\n/g, "<br>")));
+        cbody.click(expandCard);
+        let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
+        foot.click(expandCard);
+        cardDiv.append(ctitle, cfoot, cbody, foot);
+        cardDiv.append($('<a></a>').attr({
+            "target" : "_blank",
+            "href" : this.link
+        }).addClass("cardLink bi bi-youtube"));
         let wrapper = $("<div></div>").addClass("col").append(cardDiv);
         return wrapper;
     }
@@ -201,7 +257,7 @@ if($("#post-container").hasClass("insta")) {
         download: true,
         complete: function(results) {
             for(result of results.data) {
-                const postItem = new iPost(Number(result.index), result.index, result.desc, result.accessed, result.posted);
+                const postItem = new iPost(Number(result.index), result.index, result.desc, result.accessed, result.posted, result.link);
                 $("#post-container").prepend(postItem.createCard());
                 postnum++;
             }
@@ -221,7 +277,7 @@ if($("#post-container").hasClass("highlights")) {
         download: true,
         complete: function(results) {
             for(result of results.data) {
-                const hItem = new highlights(Number(result.index), result.group, result.accessed, result.date);
+                const hItem = new highlights(Number(result.index), result.group, result.accessed, result.date, result.link);
                 $("#post-container").prepend(hItem.createCard());
                 postnum++;
             }
@@ -241,7 +297,7 @@ if($("#post-container").hasClass("pins")) {
         download: true,
         complete: function(results) {
             for(result of results.data) {
-                const pinItem = new pins(Number(result.index), result.title, result.desc, result.accessed, result.date);
+                const pinItem = new pins(Number(result.index), result.title, result.desc, result.accessed, result.date, result.link);
                 $("#post-container").prepend(pinItem.createCard());
                 postnum++;
             }
@@ -273,11 +329,32 @@ if($("#post-container").hasClass("shorts")) {
     );
 }
 
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+if($("#post-container").hasClass("vids")) {
+    Papa.parse(
+    `https://docs.google.com/spreadsheets/d/e/2PACX-1vSXzA9ZHAVXMEjfUTS_JBtk5iz7X1i4auwWJHwErdmDYsuYeEcuL8h78sXxxiFvgtYWBWRt8wx8RHl2/pub?gid=2100894241&single=true&output=csv`,
+    {
+        download: true,
+        complete: function(results) {
+            for(result of results.data) {
+                const vidsItem = new videos(Number(result.index), result.title, result.description, result.accessed, result.date, result.link);
+                $("#post-container").prepend(vidsItem.createCard());
+                postnum++;
+            }
+            bufferCards($("#post-container"));
+            calcBuffer();
+        },
+        header: true
+    }
+    );
+}
+
+
 
 function expandCard () { 
     $(this).parent().toggleClass("card-hidden");
     if($(this).parent().hasClass("card-hidden")) {
-        if($(this).parent().hasClass("insta-card")) {
+        if($(this).parent().hasClass("insta-card") || $(this).parent().hasClass("v-card")) {
             $(this).parent().css("max-height", "450px");
         } else if ($(this).parent().hasClass("s-card")) {
             $(this).parent().css("max-height", "600px");
@@ -312,7 +389,6 @@ function calcBuffer () {
         n = 4
     }
     if(postnum % n) {
-        console.log(n, postnum, (postnum - 1) % n);
         $(".h-col-" + (n-((postnum - 1) % n))).css("display", "none");
     } else {
         $(".h-col").css("display", "none");
@@ -328,5 +404,66 @@ $("#order-newest").click(function () {
 $("#order-oldest").click(function () { 
     $("#post-container").addClass("reverse-chron");
 });
+
+function studycard(item) {
+    let cardDiv = $(`<div></div>`).addClass("card v-card card-hidden");
+            let cSlide = $(`<div></div>`).addClass("carousel slide card-img-top").attr("id", "studyC");
+            cardDiv.append(cSlide);
+            let carouselI = $(`<div></div>`).addClass("carousel-indicators");
+            let carouselInner = $(`<div></div>`).addClass("carousel-inner");
+            cSlide.append(carouselI, carouselInner);
+            for(let i = 0; i < 5; i++) {
+                carouselI.append($(`<button></button>`).attr({
+                    "type": "button",
+                    "data-bs-target": "#studyC",
+                    "data-bs-slide-to": i,
+                    "aria-label": "Slide " + (i + 1)
+                }));
+                let ci = $('<div></div>').addClass("carousel-item");
+                if(i == 0) {
+                    ci.append($(`<iframe src="https://www.youtube-nocookie.com/embed/XWoO_gGlrFg?si=ZkEd7OYyCX6JVaCA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`).addClass("d-block w-100 card-img-top"));
+                } else {
+                    ci.append($("<img>").attr("src", "../images/youtube/9/" + i + ".png").addClass("d-block w-100 card-img-top"));
+                }
+                carouselInner.append(ci);
+            }
+            carouselI.children().first().addClass("active").attr("aria-current", "true");
+            carouselInner.children().first().addClass("active");
+            cSlide.append($("<button></button>").addClass("carousel-control-prev").attr({
+                "type": "button",
+                "data-bs-target": "#studyC",
+                "data-bs-slide": "prev"
+            }).append($("<span></span>").addClass("carousel-control-prev-icon").attr("aria-hidden", "true"), 
+            $("<span></span>").addClass("visually-hidden").append("Previous")),
+                $("<button></button>").addClass("carousel-control-next").attr({
+                "type": "button",
+                "data-bs-target": "#studyC",
+                "data-bs-slide": "next"
+            }).append($("<span></span>").addClass("carousel-control-next-icon").attr("aria-hidden", "true"), 
+            $("<span></span>").addClass("visually-hidden").append("Next")));
+    let cfoot = $("<div></div>").addClass("card-footer posted-date").append(item.pDate.toLocaleDateString());
+    let ctitle = $("<h6></h6>").addClass("card-header card-title text-center").append(item.title);
+    let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(item.desc.replaceAll(/\\n/g, "<br>")));
+    cbody.click(expandCard);
+    let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
+    foot.click(expandCard);
+    cardDiv.append(ctitle, cfoot, cbody, foot);        
+    let wrapper = $("<div></div>").addClass("col").append(cardDiv);
+    return wrapper;
+}
+
+function youtubeCard(item) {
+    let cardDiv = $(`<div></div>`).addClass("card v-card card-hidden");
+    cardDiv.append($(`<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cpGbVhvVH5w?si=4DEpcd6VOd11xtgT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`).addClass("d-block w-100 card-img-top"));
+    let cfoot = $("<div></div>").addClass("card-footer posted-date").append(item.pDate.toLocaleDateString());
+    let ctitle = $("<h6></h6>").addClass("card-header card-title text-center").append(item.title);
+    let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(item.desc.replaceAll(/\\n/g, "<br>")));
+    cbody.click(expandCard);
+    let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
+    foot.click(expandCard);
+    cardDiv.append(ctitle, cfoot, cbody, foot);        
+    let wrapper = $("<div></div>").addClass("col").append(cardDiv);
+    return wrapper;
+}
 
 });
