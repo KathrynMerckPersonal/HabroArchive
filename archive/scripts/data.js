@@ -229,7 +229,7 @@ class videos {
         }
         let cardDiv = $(`<div></div>`).addClass("card v-card card-hidden");
         cardDiv.append($("<video></video>").attr({
-                        "src": "../images/youtube/" + this.index + ".mp4",
+                        "src": "../images/youtube/" + this.index + "a.mp4",
                         "controls": ""
                     }).addClass("d-block w-100 card-img-top"));
         let cfoot = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
