@@ -260,3 +260,8 @@ div:not(.reverse-chron) > .h-col {
 .cardLink:hover {
     opacity: 80%;
 }
+
+.b-quote-index-span {
+    font-size: 2em;
+    font-style: italic;
+}
