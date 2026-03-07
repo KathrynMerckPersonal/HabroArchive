@@ -195,7 +195,7 @@ class shorts {
                     }).addClass("d-block w-100 card-img-top"));
         let cfoot = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
         let ctitle = $("<h6></h6>").addClass("card-header card-title text-center").append(this.title);
-        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc.replaceAll(/\\n/g, "<br>")));
+        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc.replaceAll(/\\n/g, "<br>").replaceAll(/\\"/g, '"')));
         cbody.click(expandCard);
         let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
         foot.click(expandCard);
@@ -234,7 +234,7 @@ class videos {
                     }).addClass("d-block w-100 card-img-top"));
         let cfoot = $("<div></div>").addClass("card-footer posted-date").append(this.pDate.toLocaleDateString());
         let ctitle = $("<h6></h6>").addClass("card-header card-title text-center").append(this.title);
-        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc.replaceAll(/\\n/g, "<br>")));
+        let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(this.desc.replaceAll(/\\n/g, "<br>").replaceAll(/\\"/g, '"')));
         cbody.click(expandCard);
         let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
         foot.click(expandCard);
@@ -443,7 +443,7 @@ function studycard(item) {
             $("<span></span>").addClass("visually-hidden").append("Next")));
     let cfoot = $("<div></div>").addClass("card-footer posted-date").append(item.pDate.toLocaleDateString());
     let ctitle = $("<h6></h6>").addClass("card-header card-title text-center").append(item.title);
-    let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(item.desc.replaceAll(/\\n/g, "<br>")));
+    let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(item.desc.replaceAll(/\\n/g, "<br>").replaceAll(/\\"/g, '"')));
     cbody.click(expandCard);
     let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
     foot.click(expandCard);
@@ -457,7 +457,7 @@ function youtubeCard(item) {
     cardDiv.append($(`<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cpGbVhvVH5w?si=4DEpcd6VOd11xtgT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`).addClass("d-block w-100 card-img-top"));
     let cfoot = $("<div></div>").addClass("card-footer posted-date").append(item.pDate.toLocaleDateString());
     let ctitle = $("<h6></h6>").addClass("card-header card-title text-center").append(item.title);
-    let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(item.desc.replaceAll(/\\n/g, "<br>")));
+    let cbody = $("<div></div>").addClass("card-body").append($("<p></p>").append(item.desc.replaceAll(/\\n/g, "<br>").replaceAll(/\\"/g, '"')));
     cbody.click(expandCard);
     let foot = $("<div></div>").addClass("card-footer read-more").append("read more");
     foot.click(expandCard);
