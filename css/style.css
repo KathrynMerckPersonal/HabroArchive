@@ -265,3 +265,7 @@ div:not(.reverse-chron) > .h-col {
     font-size: 2em;
     font-style: italic;
 }
+
+.source a {
+    font-style: italic;
+}
