@@ -9,6 +9,13 @@ showdown.setOption('tables', 'true');
 showdown.setOption('tasklists', 'true');
 showdown.setOption('requireSpaceBeforeHeadingText', 'true');
 
+const setStyles = {
+    centered: "hpCentered",
+    highlight: "hpHighlight",
+    right: "hpRightjustified",
+    title: "title"
+}
+
 class Page {
     constructor(data, tags, user, page) {
         this.page = page;
@@ -45,10 +52,10 @@ function kathrynsBS() {
         regex: /</g,
         replace: '&lt;'
     };
-    let hashStyle = {
+    let hashStyle = Object.keys(setStyles).map( key => ({
         type: 'output',
-        regex: /<(.*)>#(\w+)/g,
-        replace: '<$1 class="$2">'
-    };
+        regex: new RegExp(`<(.*)>#(${key})`,g),
+        replace: `<$1 class="${setStyles[key]}">`
+    }));
     return[escapeChars, hashStyle];
 }
