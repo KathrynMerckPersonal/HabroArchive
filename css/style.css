@@ -271,7 +271,7 @@ div:not(.reverse-chron) > .h-col {
 }
 
 blockquote {
-    background-color: var(--bgc);
+    background-color: var(--cbgc);
     background-image:   url(../images/blockquote/sw.PNG), url(../images/blockquote/nw.PNG), url(../images/blockquote/se.PNG), url(../images/blockquote/ne.PNG), 
                         url(../images/blockquote/top.PNG), url(../images/blockquote/bottom.PNG), url(../images/blockquote/left.PNG), url(../images/blockquote/right.PNG), 
                         url(../images/blockquote/sws.PNG), url(../images/blockquote/nws.PNG), url(../images/blockquote/ses.PNG), url(../images/blockquote/nes.PNG), url(../images/blockquote/bg.PNG);
@@ -284,9 +284,9 @@ blockquote {
                          top, bottom, left, right,
                          bottom left, top left, bottom right, top right, top left;
 
-    background-size: contain, contain, contain, contain, 
-                     contain, contain, contain, contain,
-                     contain, contain, contain, contain, auto;
+    background-size: 256px, 256px, 256px, 256px, 
+                     1024px, 1024px, 29px, 29px,
+                     256px, 256px, 256px, 256px, auto;
     color: #000;
     padding: 20px;
 }
