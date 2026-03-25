@@ -269,3 +269,24 @@ div:not(.reverse-chron) > .h-col {
 .source a {
     font-style: italic;
 }
+
+blockquote {
+    background-color: var(--bgc);
+    background-image:   url(../images/blockquote/sw.PNG), url(../images/blockquote/nw.PNG), url(../images/blockquote/se.PNG), url(../images/blockquote/ne.PNG), 
+                        url(../images/blockquote/top.PNG), url(../images/blockquote/bottom.PNG), url(../images/blockquote/left.PNG), url(../images/blockquote/right.PNG), 
+                        url(../images/blockquote/sws.PNG), url(../images/blockquote/nws.PNG), url(../images/blockquote/ses.PNG), url(../images/blockquote/nes.PNG), url(../images/blockquote/bg.PNG);
+
+    background-repeat:  no-repeat, no-repeat, no-repeat, no-repeat,
+                        repeat-x, repeat-x, repeat-y, repeat-y,
+                        no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+    
+    background-position: bottom left, top left, bottom right, top right,
+                         top, bottom, left, right,
+                         bottom left, top left, bottom right, top right, top left;
+
+    background-size: contain, contain, contain, contain, 
+                     contain, contain, contain, contain,
+                     contain, contain, contain, contain, auto;
+    color: #000;
+    padding: 20px;
+}
