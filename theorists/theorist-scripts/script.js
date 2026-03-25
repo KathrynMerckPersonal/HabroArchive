@@ -1,3 +1,5 @@
+console.log(emojiList)
+
 let allDat;
 let thisPage;
 showdown.setOption('optionKeyomitExtraWLInCodeBlocks', 'true');
@@ -23,23 +25,19 @@ function loadContent(user, page) {
         download: true,
         complete: function(results) {
             thisPage = results.data[0][0];
-            console.log(thisPage);
             displayContent(page);
         }
     });
 }
 
 function displayContent(page) {
-    let converter = new showdown.Converter({extensions: [kathrynsBS]});
+    let converter = new showdown.Converter({extensions: [kathrynsBS, hpEmotes]});
     let html = converter.makeHtml(thisPage);
     $("#imported-content").append(html);
     console.log("displayed");
 }
 
 function kathrynsBS() {
-    let hpEmotes = {
-
-    };
     let escapeChars = {
         type: 'lang',
         regex: /</g,
@@ -62,3 +60,9 @@ function kathrynsBS() {
     }
     return[escapeChars, hashStyle, hashspan, hashspanend];
 }
+
+let hpEmotes = Object.keys(emojiList).map(key => ({
+    type: 'lang',
+    regex: new RegExp(`:${key}:`, 'gi'),
+    replace: `<i class="emote em${key}"></i>`
+}));

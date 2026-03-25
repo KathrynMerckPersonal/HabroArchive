@@ -330,3 +330,13 @@ blockquote p {
     padding: 0 10px;
     background-size: cover;
 }
+
+.emote{
+    padding: 0 .5em;
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    top: -.2em;
+    margin: 0 .1em;
+}
