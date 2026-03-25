@@ -47,8 +47,18 @@ function kathrynsBS() {
     };
     let hashStyle = {
         type: 'output',
-        regex: /<(.*)>#(\w*)/g,
+        regex: /<(.*)>#([^I]\w*)/g,
         replace: `<$1 class="hp$2">`
     };
-    return[escapeChars, hashStyle];
+    let hashspan = {
+        type: 'output',
+        regex: /#I(\w*)/g,
+        replace: `<span class="hp$1">`
+    }
+    let hashspanend = {
+        type: 'output',
+        regex: /\/#/g,
+        replace: `</span>`
+    }
+    return[escapeChars, hashStyle, hashspan, hashspanend];
 }
