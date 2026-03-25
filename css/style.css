@@ -331,6 +331,14 @@ blockquote p {
     background-size: cover;
 }
 
+.hpgreenglow {
+    text-shadow: 0 0 5px #00ff00, 0 0 5px #00ff00, 0 0 3px #79ff79;
+}
+
+.hpgreentext{
+    color: #003800
+}
+
 .emote{
     padding: 0 .5em;
     background-size: contain;
