@@ -64,5 +64,5 @@ function kathrynsBS() {
 let hpEmotes = Object.keys(emojiList).map(key => ({
     type: 'lang',
     regex: new RegExp(`:${key}:`, 'gi'),
-    replace: `<i class="emote em${key}"></i>`
+    replace: `<i class="emote em${key}"></i>&#x200B;`
 }));

@@ -340,11 +340,15 @@ blockquote p {
 }
 
 .emote{
-    padding: 0 .5em;
+    padding: .1em .6em;
     background-size: contain;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     position: relative;
     top: -.2em;
     margin: 0 .1em;
+}
+
+#imported-content p, .emote{
+    word-wrap: break-word;
 }
