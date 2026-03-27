@@ -427,9 +427,25 @@ blockquote:has(> p.hppcw40) {
     text-align: center;
 }
 
-.pfancy {
-    font-size: 200%;
+.hpfancy::first-letter{
+    font-size: 500%;
     font-family: fancyfont;
+    text-transform: capitalize;
+}
+
+.hpspoiler {
+    box-shadow: 0 0 6px var(--bgc), inset 0 0 6px var(--cbgc);
+    border-radius: .5em;
+    background-color: var(--bgc);
+    color: var(--bgt);
+    padding: 0 5px;
+    transition: color .5s linear, box-shadow .5s linear, background-color .5s linear;
+}
+
+.hpspoiler:hover {
+    box-shadow: 0 0 6px var(--cbgc), inset 0 0 6px var(--cbgc);
+    background-color: var(--cbgc);
+    color: var(--bgc);
 }
 
 .emote{
