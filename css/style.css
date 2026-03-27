@@ -323,6 +323,11 @@ blockquote p {
     font-family: caslon;
 }
 
+.subheading {
+    font-size: .8em;
+    color: #ddd;
+}
+
 .hphighlight{
     background-image: url(../images/highlight.svg);
     background-repeat: no-repeat;
@@ -337,6 +342,84 @@ blockquote p {
 
 .hpgreentext{
     color: #003800
+}
+
+.hpw25 {
+    width: 25%;
+}
+.hpw50 {
+    width: 50%;
+}
+.hpw75 {
+    width: 75%;
+}
+.hpw60 {
+    width: 60%;
+}
+.hpw40 {
+    width: 40%;
+}
+
+.hpcw25 {
+    margin: auto;
+    width: 25%;
+}
+.hpcw50 {
+    margin: auto;
+    width: 50%;
+}
+.hpcw75 {
+    margin: auto;
+    width: 75%;
+}
+.hpcw60 {
+    margin: auto;
+    width: 60%;
+}
+.hpcw40 {
+    margin: auto;
+    width: 40%;
+}
+
+blockquote:has(> p.hppw25) {
+    width: 25%;
+}
+blockquote:has(> p.hppw50) {
+    width: 50%;
+}
+blockquote:has(> p.hppw75) {
+    width: 75%;
+}
+blockquote:has(> p.hppw60) {
+    width: 60%;
+}
+blockquote:has(> p.hppw40) {
+    width: 40%;
+}
+
+blockquote:has(> p.hppcw25) {
+    margin: auto;
+    width: 25%;
+}
+blockquote:has(> p.hppcw50) {
+    margin: auto;
+    width: 50%;
+}
+blockquote:has(> p.hppcw75) {
+    margin: auto;
+    width: 75%;
+}
+blockquote:has(> p.hppcw60) {
+    margin: auto;
+    width: 60%;
+}
+blockquote:has(> p.hppcw40) {
+    margin: auto;
+    width: 40%;
+}
+
+.hptcenter {
+    text-align: center;
 }
 
 .emote{

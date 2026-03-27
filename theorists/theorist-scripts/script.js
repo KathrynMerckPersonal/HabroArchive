@@ -58,7 +58,12 @@ function kathrynsBS() {
         regex: /\/#/g,
         replace: `</span>`
     }
-    return[escapeChars, hashStyle, hashspan, hashspanend];
+    let teenytext = {
+        type: 'output',
+        regex: />-#\s/g,
+        replace: ` class="subheading"> `
+    }
+    return[escapeChars, hashStyle, hashspan, hashspanend, teenytext];
 }
 
 let hpEmotes = Object.keys(emojiList).map(key => ({
