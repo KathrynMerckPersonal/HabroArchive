@@ -11,6 +11,11 @@
 }
 
 @font-face {
+    font-family: courierprime;
+    src: url(fonts/CourierPrime-Regular.ttf);
+}
+
+@font-face {
     font-family: caslon;
     src: url(fonts/CaslonAntique.ttf);
     font-weight: normal;
@@ -458,6 +463,12 @@ blockquote:has(> p.hppcw40) {
     margin: 0 .1em;
 }
 
-#imported-content p, .emote{
+#imported-content p, .emote, #imported-content li, #imported-content td, #imported-content th{
+    font-family: alice;
     word-wrap: break-word;
 }
+
+code {
+    font-family: courierprime, monospace;
+}
+

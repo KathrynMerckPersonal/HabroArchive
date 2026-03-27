@@ -63,7 +63,17 @@ function kathrynsBS() {
         regex: />-#\s/g,
         replace: ` class="subheading"> `
     }
-    return[escapeChars, hashStyle, hashspan, hashspanend, teenytext];
+    let footnotelinks = {
+        type : 'lang',
+        regex: /\[\^(\d+)\][^:]/g,
+        replace: `<sup>[<a class="fnl" href="#fn$1">$1</a>]</sup>`
+    }
+    let footnotes = {
+        type: 'lang',
+        regex: /\[\^(\d+)\]:(.*)/g,
+        replace: `<span id="fn$1"> $1. $2 </span>`
+    }
+    return[escapeChars, hashStyle, hashspan, hashspanend, teenytext, footnotelinks, footnotes];
 }
 
 let hpEmotes = Object.keys(emojiList).map(key => ({
