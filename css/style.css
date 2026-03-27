@@ -48,6 +48,11 @@
 	src: url(fonts/RuntimeRegular-m2Odx.otf);
 }
 
+@font-face {
+    font-family: fancyfont;
+    src: url(fonts/RusillaSerif-2OZpl.otf);
+}
+
 h1, h2, h3, h4, h5, h6, .read-more, .posted-date {
     font-family: habrohead;
 }
@@ -420,6 +425,11 @@ blockquote:has(> p.hppcw40) {
 
 .hptcenter {
     text-align: center;
+}
+
+.pfancy {
+    font-size: 200%;
+    font-family: fancyfont;
 }
 
 .emote{
