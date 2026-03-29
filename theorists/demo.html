@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>HABROPEDIA - KathrynProbably</title>
+        <title>HABROPEDIA - MarkDown Tester</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="../css/emojis.css">
@@ -87,18 +87,21 @@
                 <h2 class="theorist-title">Kathryn</h2>
             </div>
             <div class="container content mt-3 mb-3">
-                <div class="row row-cols-1 pb-3 pt-3 clearfix ">
-                    <div id="imported-content"></div>
+                <div class="row row-cols-1 row-cols-md-2 pb-3 pt-3 clearfix ">
+                    <div class="col input h-100">
+                        <textarea name="inputcont" id="inputcont"></textarea>
+                        <button type="button" onclick="copytext()">Copy text</button>
+                    </div>
+                    <div class="col output">
+                        <div id="outputcont"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
         <script src="../js/emojis.js"></script>
         <script src="./theorist-scripts/showdownsetup.js"></script>
-        <script src="./theorist-scripts/script.js"></script>
-        <script>$(document).ready(function(){
-            loadContent("KathrynProbably", "tester");
-        })</script>
+        <script src="./theorist-scripts/livedemo.js"></script>
         <script src="../archive/scripts/base.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
