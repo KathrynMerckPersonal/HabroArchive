@@ -1,4 +1,3 @@
-
 showdown.setOption('optionKeyomitExtraWLInCodeBlocks', 'true');
 showdown.setOption('prefixHeaderId', 'tester');
 showdown.setOption('simplifiedAutoLink', 'true');
@@ -45,7 +44,12 @@ function kathrynsBS() {
         regex: /\[\^(\d+)\]:(.*)/g,
         replace: `<span id="fn$1"> $1. $2 </span>`
     }
-    return[escapeChars, hashStyle, hashspan, hashspanend, teenytext, footnotelinks, footnotes];
+    let spoilers = {
+        type: 'output',
+        regex: /\|\|(.*)\|\|/g,
+        replace: `<span class="hpspoiler">$1</span>`
+    }
+    return[escapeChars, hashStyle, hashspan, hashspanend, teenytext, footnotelinks, footnotes, spoilers];
 }
 
 let hpEmotes = Object.keys(emojiList).map(key => ({
