@@ -16,7 +16,9 @@ $(document).ready(function () {
     })
 });
 
-let doctext = `# heading 1
+let doctext = `
+# #title TITLE
+# heading 1
 ## heading 2
 ...
 ###### heading 6
