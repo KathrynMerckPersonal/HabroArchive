@@ -24,7 +24,17 @@ function loadContent(user, page) {
 
 function displayContent(page) {
     if(page == "toc") {
-        console.log(thisPage)
+        console.log(thisPage);
+        let form = $("<form></form>").attr({
+            "id" : "tocform",
+            "method": "GET"
+        });
+        for(let i = 0; i < thisPage.length; i++) {
+            let totle = thisPage[i].title.replace(/[^\w\d]/g, '-')
+            form.append(`<input type="radio" class="tocItem" id="${totle}" name="contents" value="${totle}">
+                <label for="${totle}">${thisPage[i].title}<label><br>`)
+        }
+        $("#imported-content").append(form);
     } else {
         let html = converter.makeHtml(thisPage);
         $("#imported-content").append(html);
