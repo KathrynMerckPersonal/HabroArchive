@@ -32,7 +32,7 @@ function displayContent(page) {
         for(let i = 0; i < thisPage.length; i++) {
             let totle = thisPage[i].title.replace(/[^\w\d]/g, '-')
             form.append(`<input type="radio" class="tocItem" id="${totle}" name="contents" value="${totle}">
-                <label for="${totle}">${thisPage[i].title}<label><br>`)
+                <label for="${totle}">${thisPage[i].title}</label><br>`)
         }
         $("#imported-content").append(form);
     } else {
