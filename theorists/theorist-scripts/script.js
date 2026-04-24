@@ -27,7 +27,8 @@ function displayContent(page) {
         console.log(thisPage);
         let form = $("<form></form>").attr({
             "id" : "tocform",
-            "method": "GET"
+            "method": "GET",
+            "oninput": "this.submit()"
         });
         for(let i = 0; i < thisPage.length; i++) {
             let totle = thisPage[i].title.replace(/[^\w\d]/g, '-')
